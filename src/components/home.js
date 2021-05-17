@@ -28,7 +28,7 @@ function Home(props) {
 
                     
                     <div className='row d-flex justify-content-center'>
-                        <div className='col-10 col-xl-3'>
+                        <div className='col-10 col-xl-4'>
                             <div className='card h-100 mt-2'>
                                 <div className='card-body text-center'>
                                     <h5 className='card-title'>Programming</h5>
@@ -37,7 +37,7 @@ function Home(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-10 col-xl-3'>
+                        <div className='col-10 col-xl-4'>
                             <div className='card h-100 mt-2'>
                                 <div className='card-body text-center'>
                                     <h5 className='card-title'>Mathematics</h5>
@@ -46,7 +46,7 @@ function Home(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-10 col-xl-3 '>
+                        <div className='col-10 col-xl-4 '>
                             <div className='card h-100 mt-2'>
                                 <div className='card-body text-center'>
                                     <h5 className='card-title'>Miscellaneous</h5>
@@ -78,7 +78,7 @@ function Home(props) {
                         <h5 className='card-title text-center'>2021 Challenge</h5>
                         <p className='card-text'>I am aiming to make multiple projects per month in 2021. I will be highlighting my 2 favorite projects of each month and writing blog posts on them.</p>
                         <hr/>
-                        <a href="https://anthonyargel.com/blog/#/blog/6087a2dafedb56001512312d" class="btn">Visit Hub Page</a>
+                        <a href="https://anthonyargel.com/blog/#/blog/6087a2dafedb56001512312d" className="btn">Visit Hub Page</a>
                     </div>
                 </div>
 
@@ -93,11 +93,11 @@ function Home(props) {
                             <div className='card-body' style={{backgroundColor:'white'}}>
                                 <h5 className='card-title'>Blog</h5>
                                 <p className='card-text'>My personal blog. It is one of the first projects I have made that uses my own frontend and backend. I attempted to write code with CRUD and REST in mind. I plan to keep updating this site as I learn more.
-                                <br/><br/>Tools worth noting: React, Bootstrap, Express, MongoDB, Passport</p>
+                                <br/><br/>Tools worth noting: React, Bootstrap 5, Express, MongoDB, Passport</p>
                                 <hr/>
-                                <a href="https://github.com/anthony-argel/blog" class="btn">Source Code: Frontend</a>
-                                <a href="https://github.com/anthony-argel/blog-API" class="btn">Source Code: Backend</a>
-                                <a href="https://anthonyargel.com/blog/" class="btn">Visit Page</a>
+                                <a href="https://github.com/anthony-argel/blog" className="btn">Source Code: Frontend</a>
+                                <a href="https://github.com/anthony-argel/blog-API" className="btn">Source Code: Backend</a>
+                                <a href="https://anthonyargel.com/blog/" className="btn">Visit Page</a>
                             </div>
                         </div>
                     </div>
@@ -106,15 +106,17 @@ function Home(props) {
                 <div className='card mb-3 p-3'>
                     <div className='row g-0'>
                         <div className='col-md-4'>
-                            <img src='https://pbs.twimg.com/media/ExMdLutVoAI9D9G?format=jpg' className='w-100' alt='My lux memory card game project.'/>
+                            <img src='https://i.imgur.com/IwSyHhr.png' className='w-100' alt='Homepage of ASMR database'/>
                         </div>
                         <div className='col-md-8 h-100'>
                             <div className='card-body' style={{backgroundColor:'white'}}>
-                                <h5 className='card-title'>Memory Card Game</h5>
-                                <p className='card-text'>A card memorization game featuring Lux from League of Legends. This project was a very good introduction to React.</p>
+                                <h5 className='card-title'>ASMRdb</h5>
+                                <p className='card-text'>An online database for ASMR youtubers. Wiki-esque. I tried my best to implement the concepts of CRUD and REST.
+                                <br/><br/>Tools worth noting: React, Bootstrap 5, Express, MongoDB, Passport</p>
                                 <hr/>
-                                <a href="https://github.com/anthony-argel/lux-memory-game" class="btn">Source Code</a>
-                                <a href="https://anthonyargel.com/lux-memory-game/" class="btn">Visit Page</a>
+                                <a href="https://github.com/anthony-argel/asmrdb-frontend" className="btn">Source Code: Frontend</a>
+                                <a href="https://github.com/anthony-argel/asmrdb-api" className="btn">Source Code: Backend</a>
+                                <a href="https://www.asmrdb.net" className="btn">Visit Page</a>
                             </div>
                         </div>
                     </div>
@@ -131,8 +133,8 @@ function Home(props) {
                                 <h5 className='card-title'>Member's Only Messageboard</h5>
                                 <p className='card-text'>A messageboard where members of different levels have different options on the site. This project was a good introduction to Express as well as MongoDB.</p>
                                 <hr/>
-                                <a href="https://github.com/anthony-argel/members-only" class="btn">Source Code</a>
-                                <a href="https://whispering-stream-50848.herokuapp.com/" class="btn">Visit Page</a>
+                                <a href="https://github.com/anthony-argel/members-only" className="btn">Source Code</a>
+                                <a href="https://whispering-stream-50848.herokuapp.com/" className="btn">Visit Page</a>
                             </div>
                         </div>
                     </div>
