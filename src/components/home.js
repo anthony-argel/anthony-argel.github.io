@@ -1,6 +1,9 @@
 import React from 'react';
 import blogimg from '../assets/images/blog-2021-4-26.png';
-
+import {IoLogoCss3, IoLogoJavascript} from 'react-icons/io';
+import {FaHtml5, FaReact, FaBootstrap, FaNodeJs, FaGithub, FaLinux, FaTwitter, FaYoutube} from 'react-icons/fa';
+import {SiMongodb, SiHeroku, SiWebpack, SiPython} from 'react-icons/si';
+import {CgCPlusPlus} from 'react-icons/cg';
 function Home(props) {
 
     return (
@@ -56,6 +59,97 @@ function Home(props) {
                             </div>
                         </div>
                     </div>
+
+                <h2 className='text-center mt-5' id='skills'>Tools / Skills</h2><hr></hr>
+                <div className='row d-flex justify-content-center'>
+                    <div className='col-10 col-xl-4'>
+                        <div className='card h-100 mt-2'>
+                            <div className='card-body text-center'>
+                                <h5 className='card-title'>Frontend</h5>
+                                <hr/>
+                                <p className='card-text d-flex justify-content-around flex-wrap' >
+                                    <div className='p-2'>
+                                        <IoLogoCss3 size='2em'/>
+                                        <p>CSS</p>
+                                    </div>
+                                    <div className='p-2'>
+                                        <FaHtml5 size='2em'/>
+                                        <p>HTML</p>
+                                    </div>
+                                    <div className='p-2'>
+                                        <IoLogoJavascript size='2em'/>
+                                        <p>JavaScript</p>
+                                    </div>
+                                    <div className='p-2'>
+                                        <FaReact size='2em'/>
+                                        <p>React</p>
+                                    </div>
+                                    <div className='p-2'>
+                                        <FaBootstrap size='2em'/>
+                                        <p>Bootstrap</p>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-10 col-xl-4'>
+                        <div className='card h-100 mt-2'>
+                            <div className='card-body text-center'>
+                                <h5 className='card-title'>Backend</h5>
+                                <hr/>
+                                <p className='card-text d-flex justify-content-around flex-wrap'>
+                                    
+                                <div className='p-2'>
+                                    <SiMongodb size='2em'/>
+                                    <p>MongoDB</p>
+                                </div>
+                                <div className='p-2'>
+                                    <FaNodeJs size='2em'/>
+                                    <p>Node /<br/>Express</p>
+                                </div>
+                                <div className='p-2'>
+                                    <IoLogoJavascript size='2em'/>
+                                    <p>JavaScript</p>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-10 col-xl-4 '>
+                        <div className='card h-100 mt-2'>
+                            <div className='card-body text-center'>
+                                <h5 className='card-title'>Miscellaneous</h5>
+                                <hr/>
+                                <p className='card-text d-flex justify-content-around flex-wrap'>
+                                <div className='p-2'>
+                                    <FaGithub size='2em'/>
+                                    <p>Github</p>
+                                </div>
+                                <div className='p-2'>
+                                    <FaLinux size='2em'/>
+                                    <p>Linux</p>
+                                </div>
+                                <div className='p-2'>
+                                    <SiHeroku size='2em'/>
+                                    <p>Heroku</p>
+                                </div>
+                                <div className='p-2'>
+                                    <SiWebpack size='2em'/>
+                                    <p>Webpack</p>
+                                </div>
+                                <div className='p-2'>
+                                    <SiPython size='2em'/>
+                                    <p>Python</p>
+                                </div>
+                                <div className='p-2'>
+                                    <CgCPlusPlus size='2em'/>
+                                    <p>C++</p>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -148,6 +242,18 @@ function Home(props) {
 
 
 
+        <div className='row d-flex justify-content-center p-2' id='contact' style={{backgroundColor:'rgb(68, 183, 135)'}}>
+            <h2 className='text-center pt-3'>Contact</h2>
+            <hr/>
+            <div className='col-8' style={{marginBottom:'3em'}}>
+            <p className='text-center'>email: anthony.r.argel@gmail.com</p>
+                <div className='d-flex justify-content-around fs-1'>
+                    <a style={{color:'black'}} href='https://www.youtube.com/channel/UC1sDOUKaKwR1aDBhXJIfC1w'><FaYoutube /></a>
+                    <a style={{color:'black'}} href='https://twitter.com/Anthony_Argel'><FaTwitter /></a>
+                    <a style={{color:'black'}} href='https://github.com/anthony-argel'><FaGithub /></a>
+                </div>
+            </div>
+        </div>
 
 
 
