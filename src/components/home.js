@@ -1,264 +1,101 @@
-import React from 'react';
-import blogimg from '../assets/images/blog-2021-4-26.png';
-import {IoLogoCss3, IoLogoJavascript} from 'react-icons/io';
-import {FaHtml5, FaReact, FaBootstrap, FaNodeJs, FaGithub, FaLinux, FaTwitter, FaYoutube} from 'react-icons/fa';
-import {SiMongodb, SiHeroku, SiWebpack, SiPython} from 'react-icons/si';
-import {CgCPlusPlus} from 'react-icons/cg';
+import React, { useState } from 'react';
+import resume from '../assets/Resume.pdf';
+import blogimg from '../assets/images/blog.png';
+import asmrdbimg from '../assets/images/asmrdb.png';
+import inteviewprepimg from '../assets/images/interviewprep.png';
+import {FaGithub, FaLinkedin, FaArrowAltCircleLeft, FaArrowAltCircleRight} from 'react-icons/fa';
+import {AiOutlineMail} from 'react-icons/ai';
 function Home(props) {
+    const projects = [
+        {
+            title: "InterviewPrep.net",
+            description: "Ask and browse interview questions, upload and watch youtube responses to questions, give and receive feedback.",
+            img: inteviewprepimg,
+            url: 'https://www.interviewprep.net/',
+            backend: "https://github.com/anthony-argel/interviewprep-api",
+            frontend: "https://github.com/anthony-argel/interviewprep-frontend"
+        },
+        {
+            title: "Blog",
+            description: "A content management system for my thoughts.",
+            img: blogimg,
+            url: "https://www.anthonyargel.com/blog",
+            backend: "https://github.com/anthony-argel/blog-API",
+            frontend: "https://github.com/anthony-argel/blog"
+        },
+        {
+            title: "ASMR database",
+            description: "A wiki-esque website for ASMR enthusiasts to gather data, search for new content, and discuss all things ASMR.",
+            img: asmrdbimg,
+            url:'https://www.asmrdb.net/',
+            backend: "https://github.com/anthony-argel/asmrdb-api",
+            frontend: "https://github.com/anthony-argel/asmrdb-frontend"
+        }
+    ];
+    
+    const [currentProjectInd, setCurrentProjectInd] = useState(0);
+
+    function nextProject(num) {
+        let nextNumber = currentProjectInd + num;
+        if(nextNumber < 0 ) {
+            nextNumber = projects.length - 1;
+        }
+        if(nextNumber >= projects.length) {
+            nextNumber = 0;
+        }
+        setCurrentProjectInd(nextNumber);
+    }
 
     return (
-    <div className='container-fluid' id='home' style={{backgroundColor:'rgb(155, 194, 155)'}}>
-        <div className='row min-vh-100 '>
-            <div className='col-12 d-flex flex-column justify-content-center align-items-center header position-relative' style={{minHeight:"100%"}}>
-                <h1>Anthony Argel</h1>
-                <p className='position-absolute' style={{animationDelay:"1s",left:"10%", top:"20%"}}>Web Development</p>
-                <p className='position-absolute' style={{animationDelay:"1s",left:"70%", top:"85%"}}>JavaScript</p>
-                <p className='position-absolute' style={{animationDelay:"3s",left:"80%", top:"60%"}}>Game Development</p>
-                <p className='position-absolute' style={{animationDelay:"3s",left:"20%", top:"50%"}}>C++</p>
-                <p className='position-absolute' style={{animationDelay:"3s",left:"40%", top:"15%"}}>Python</p>
-                <p className='position-absolute' style={{animationDelay:"4s",left:"70%", top:"30%"}}>Mathematics</p>
-                <p className='position-absolute' style={{animationDelay:"4s",left:"30%", top:"80%"}}>Education</p>
-            </div>
-        </div>
-        
-
-        <div className='row d-flex justify-content-center' id='about'>
-            <div className='col-12 col-md-8'>
-                <div className='about-me' >
-                    <h2 className='text-center'>About Me</h2><hr/>
-                    <p>I have a B.S. in Applied Mathematics from San Jose State Univeristy. My goal in life is to learn all there is to know about mathematics and computers (software and hardware). I am currently studying Web Development. I believe that anyone can do anything so long as they have the time and resources. What may take a normal person 10 hours to learn may take an idiot 100 hours to learn. So what? If you truly want something, then you better put in the hours.</p>
-                    <h2 className='text-center' >Interests</h2><hr></hr>
-
-                    
-                    <div className='row d-flex justify-content-center'>
-                        <div className='col-10 col-xl-4'>
-                            <div className='card h-100 mt-2'>
-                                <div className='card-body text-center'>
-                                    <h5 className='card-title'>Programming</h5>
-                                    <hr/>
-                                    <p className='card-text'>Web Development<br/>Game Development<br/>Artificial Intelligence</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-10 col-xl-4'>
-                            <div className='card h-100 mt-2'>
-                                <div className='card-body text-center'>
-                                    <h5 className='card-title'>Mathematics</h5>
-                                    <hr/>
-                                    <p className='card-text'>Combinatorics<br/>Graph Theory<br/>Cryptography</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-10 col-xl-4 '>
-                            <div className='card h-100 mt-2'>
-                                <div className='card-body text-center'>
-                                    <h5 className='card-title'>Miscellaneous</h5>
-                                    <hr/>
-                                    <p className='card-text'>Japanese Studies<br/>Collecting Cheesy Quotes<br/>Teaching</p>
-                                </div>
-                            </div>
-                        </div>
+    <div className='container-fluid'>
+        <div className='row'>
+            <div className='col-12 col-lg-3 information d-flex flex-column justify-content-center'>
+                <div>
+                    <h1 className='display-4 fw-bold'>Anthony Argel</h1>
+                    <h4>Fullstack Developer</h4>
+                    <a href={resume} download className='h2' style={{textDecoration:'none'}}>Resume</a><br/>
+                    <div className='d-flex justify-content-around mt-3'>
+                    <a href='mailto:anthony.r.argel@gmail.com'><AiOutlineMail color='black' size='1.7em'/></a>
+                    <a href='https://www.linkedin.com/in/anthony-argel-24735116a/'><FaGithub color='black' size='1.7em'/></a>
+                    <a href='https://github.com/anthony-argel'><FaLinkedin color='black' size='1.7em'/></a>
                     </div>
-
-                <h2 className='text-center mt-5' id='skills'>Tools / Skills</h2><hr></hr>
-                <div className='row d-flex justify-content-center'>
-                    <div className='col-10 col-xl-4'>
-                        <div className='card h-100 mt-2'>
-                            <div className='card-body text-center'>
-                                <h5 className='card-title'>Frontend</h5>
-                                <hr/>
-                                <p className='card-text d-flex justify-content-around flex-wrap' >
-                                    <div className='p-2'>
-                                        <IoLogoCss3 size='2em'/>
-                                        <p>CSS</p>
-                                    </div>
-                                    <div className='p-2'>
-                                        <FaHtml5 size='2em'/>
-                                        <p>HTML</p>
-                                    </div>
-                                    <div className='p-2'>
-                                        <IoLogoJavascript size='2em'/>
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div className='p-2'>
-                                        <FaReact size='2em'/>
-                                        <p>React</p>
-                                    </div>
-                                    <div className='p-2'>
-                                        <FaBootstrap size='2em'/>
-                                        <p>Bootstrap</p>
-                                    </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-10 col-xl-4'>
-                        <div className='card h-100 mt-2'>
-                            <div className='card-body text-center'>
-                                <h5 className='card-title'>Backend</h5>
-                                <hr/>
-                                <p className='card-text d-flex justify-content-around flex-wrap'>
-                                    
-                                <div className='p-2'>
-                                    <SiMongodb size='2em'/>
-                                    <p>MongoDB</p>
-                                </div>
-                                <div className='p-2'>
-                                    <FaNodeJs size='2em'/>
-                                    <p>Node /<br/>Express</p>
-                                </div>
-                                <div className='p-2'>
-                                    <IoLogoJavascript size='2em'/>
-                                    <p>JavaScript</p>
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-10 col-xl-4 '>
-                        <div className='card h-100 mt-2'>
-                            <div className='card-body text-center'>
-                                <h5 className='card-title'>Miscellaneous</h5>
-                                <hr/>
-                                <p className='card-text d-flex justify-content-around flex-wrap'>
-                                <div className='p-2'>
-                                    <FaGithub size='2em'/>
-                                    <p>Github</p>
-                                </div>
-                                <div className='p-2'>
-                                    <FaLinux size='2em'/>
-                                    <p>Linux</p>
-                                </div>
-                                <div className='p-2'>
-                                    <SiHeroku size='2em'/>
-                                    <p>Heroku</p>
-                                </div>
-                                <div className='p-2'>
-                                    <SiWebpack size='2em'/>
-                                    <p>Webpack</p>
-                                </div>
-                                <div className='p-2'>
-                                    <SiPython size='2em'/>
-                                    <p>Python</p>
-                                </div>
-                                <div className='p-2'>
-                                    <CgCPlusPlus size='2em'/>
-                                    <p>C++</p>
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
-        </div>
 
 
 
 
+            <div className='col-12 col-lg-9 p-3 projects'>
+                    <h3 className='text-center display-4 mb-0'>Projects</h3>
+                    <hr/>
+                <div className='grid-container'>
 
-        <div className='row d-flex justify-content-center'>
-            <div className='col-12 col-md-8'>
-                <h2 className='text-center' id='projects'>Projects</h2>
-                <hr/>
+                <div className='grid-item item-1'>
+                    <img src={projects[currentProjectInd].img} className='project-img d-block mx-auto' alt=''/>
+                </div>
 
+                <div className='grid-item item-2 mx-auto my-auto'>
+                <FaArrowAltCircleLeft size='2em'  cursor='pointer' onClick={() => nextProject(-1)}/>
+                </div>
 
-
-
-
-                <div className='card mb-3 p-3'>
-                    <div className='card-body' style={{backgroundColor:'white'}}>
-                        <h5 className='card-title text-center'>2021 Challenge</h5>
-                        <p className='card-text'>I am aiming to make multiple projects per month in 2021. I will be highlighting my 2 favorite projects of each month and writing blog posts on them.</p>
-                        <hr/>
-                        <a href="https://anthonyargel.com/blog/#/blog/6087a2dafedb56001512312d" className="btn">Visit Hub Page</a>
-                    </div>
+                <div className='grid-item item-3 mx-auto my-auto'>
+                <FaArrowAltCircleRight size='2em' cursor='pointer' onClick={() => nextProject(1)}/>
                 </div>
 
 
-                
-                <div className='card mb-3 p-3'>
-                    <div className='row g-0'>
-                        <div className='col-md-4'>
-                            <img src={blogimg} className='w-100' alt='My blog project.'/>
-                        </div>
-                        <div className='col-md-8 h-100'>
-                            <div className='card-body' style={{backgroundColor:'white'}}>
-                                <h5 className='card-title'>Blog</h5>
-                                <p className='card-text'>My personal blog. It is one of the first projects I have made that uses my own frontend and backend. I attempted to write code with CRUD and REST in mind. I plan to keep updating this site as I learn more.
-                                <br/><br/>Tools worth noting: React, Bootstrap 5, Express, MongoDB, Passport</p>
-                                <hr/>
-                                <a href="https://github.com/anthony-argel/blog" className="btn">Source Code: Frontend</a>
-                                <a href="https://github.com/anthony-argel/blog-API" className="btn">Source Code: Backend</a>
-                                <a href="https://anthonyargel.com/blog/" className="btn">Visit Page</a>
-                            </div>
-                        </div>
+                <div className='grid-item item-4'>
+                    <p className='fs-2 fw-bold'>{projects[currentProjectInd].title}</p>
+                    <p>{projects[currentProjectInd].description}</p>
+                    <div className='d-flex justify-content-center'>
+                        <a href={projects[currentProjectInd].url} target='_blank' rel='noopener noreferrer' className='btn btn-secondary mx-3'>Visit Site</a>
+                        <a href={projects[currentProjectInd].backend} target='_blank' rel='noopener noreferrer'  className='btn btn-primary mx-3'>Backend code</a>
+                        <a href={projects[currentProjectInd].frontend} target='_blank' rel='noopener noreferrer'  className='btn btn-primary mx-3'>Frontend code</a>
                     </div>
-                </div>
-
-                <div className='card mb-3 p-3'>
-                    <div className='row g-0'>
-                        <div className='col-md-4'>
-                            <img src='https://i.imgur.com/IwSyHhr.png' className='w-100' alt='Homepage of ASMR database'/>
-                        </div>
-                        <div className='col-md-8 h-100'>
-                            <div className='card-body' style={{backgroundColor:'white'}}>
-                                <h5 className='card-title'>ASMRdb</h5>
-                                <p className='card-text'>An online database for ASMR youtubers. Wiki-esque. I tried my best to implement the concepts of CRUD and REST.
-                                <br/><br/>Tools worth noting: React, Bootstrap 5, Express, MongoDB, Passport</p>
-                                <hr/>
-                                <a href="https://github.com/anthony-argel/asmrdb-frontend" className="btn">Source Code: Frontend</a>
-                                <a href="https://github.com/anthony-argel/asmrdb-api" className="btn">Source Code: Backend</a>
-                                <a href="https://www.asmrdb.net" className="btn">Visit Page</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className='card mb-3 p-3'>
-                    <div className='row g-0'>
-                        <div className='col-md-4'>
-                            <img src='https://pbs.twimg.com/media/EzRJTXDVIAUNOWj?format=jpg' className='w-100' alt='My messageboard project.'/>
-                        </div>
-                        <div className='col-md-8 h-100'>
-                            <div className='card-body' style={{backgroundColor:'white'}}>
-                                <h5 className='card-title'>Member's Only Messageboard</h5>
-                                <p className='card-text'>A messageboard where members of different levels have different options on the site. This project was a good introduction to Express as well as MongoDB.</p>
-                                <hr/>
-                                <a href="https://github.com/anthony-argel/members-only" className="btn">Source Code</a>
-                                <a href="https://whispering-stream-50848.herokuapp.com/" className="btn">Visit Page</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-            </div>
-        </div>
-
-
-
-        <div className='row d-flex justify-content-center p-2' id='contact' style={{backgroundColor:'rgb(68, 183, 135)'}}>
-            <h2 className='text-center pt-3'>Contact</h2>
-            <hr/>
-            <div className='col-8' style={{marginBottom:'3em'}}>
-            <p className='text-center'>email: anthony.r.argel@gmail.com</p>
-                <div className='d-flex justify-content-around fs-1'>
-                    <a style={{color:'black'}} href='https://www.youtube.com/channel/UC1sDOUKaKwR1aDBhXJIfC1w'><FaYoutube /></a>
-                    <a style={{color:'black'}} href='https://twitter.com/Anthony_Argel'><FaTwitter /></a>
-                    <a style={{color:'black'}} href='https://github.com/anthony-argel'><FaGithub /></a>
                 </div>
             </div>
+            </div>
+
         </div>
-
-
-
-
-
     </div>)
 }
 
