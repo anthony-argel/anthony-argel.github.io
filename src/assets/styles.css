@@ -98,3 +98,7 @@ ul {
         grid-row:2/3;
     }
 }
+
+a {
+    min-width: 2vw;
+}
