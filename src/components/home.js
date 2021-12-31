@@ -3,10 +3,19 @@ import resume from '../assets/Resume.pdf';
 import blogimg from '../assets/images/blog.png';
 import asmrdbimg from '../assets/images/asmrdb.png';
 import inteviewprepimg from '../assets/images/interviewprep.png';
+import tunystechimg from '../assets/images/tunystech.png'
 import {FaGithub, FaLinkedin, FaArrowAltCircleLeft, FaArrowAltCircleRight} from 'react-icons/fa';
 import {AiOutlineMail} from 'react-icons/ai';
 function Home(props) {
     const projects = [
+        {
+            title: "Tuny's Tech",
+            description: "A compilation of resources and personal creations that will help people learn about the world of I.T.",
+            img: tunystechimg,
+            url: 'https://www.tunystech.com',
+            backend: "https://github.com/anthony-argel/tunystech-api",
+            frontend: "https://github.com/anthony-argel/tunystech-frontend"
+        },
         {
             title: "InterviewPrep.net",
             description: "Ask and browse interview questions, upload and watch youtube responses to questions, give and receive feedback.",
@@ -52,7 +61,7 @@ function Home(props) {
             <div className='col-12 col-lg-3 information d-flex flex-column justify-content-center'>
                 <div>
                     <h1 className='fw-bold' style={{fontSize:'max(2.4vw, 4vh)'}}>Anthony Argel</h1>
-                    <h4 style={{fontSize:'max(1.2vw, 3vh)'}}>Fullstack Developer</h4>
+                    <h4 style={{fontSize:'max(1.2vw, 3vh)'}}>Full Stack Developer</h4>
                     <a href={resume} download className='h2' style={{textDecoration:'none', fontSize:'max(1.2vw, 3vh)'}}>Resume</a><br/>
                     <div className='d-flex justify-content-around mt-3'>
                     <a href='mailto:anthony.r.argel@gmail.com'><AiOutlineMail color='black' size='max(1.7vw, 4vh)'/></a>
