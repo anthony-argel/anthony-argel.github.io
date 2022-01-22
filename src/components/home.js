@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import resume from '../assets/Resume.pdf';
 import blogimg from '../assets/images/blog.png';
 import asmrdbimg from '../assets/images/asmrdb.png';
 import inteviewprepimg from '../assets/images/interviewprep.png';
-import tunystechimg from '../assets/images/tunystech.png'
-import {FaGithub, FaLinkedin, FaArrowAltCircleLeft, FaArrowAltCircleRight} from 'react-icons/fa';
-import {AiOutlineMail} from 'react-icons/ai';
+import rpgimg from '../assets/images/rpgengine.png'
+import Window from './window';
+import About from './about';
+import Projects from './projects';
+import TaskBar from './taskbar';
+import Info from './info';
 function Home(props) {
+    const [activeWindow, setActiveWindow] = useState(0);
+    const [selectedProject, setSelectedProject] = useState(-1);
+    const [leftPos, setLeftPos] = useState(0);
+    const [topPos, setTopPos] = useState(0);
+    const [xOffset, setXOffset] = useState(0);
+    const [yOffset, setYOffset] = useState(0);
+    const [dragging, setDragging] = useState(false);
+    const [winPositions, setWinPositions] = useState([[100,400], [1000,50], [2,2]])
+
+    function openProjectInfo(title) {
+        for(let i = 0; i < projects.length; i++) {
+            if(title === projects[i].title) {
+                setSelectedProject(i);
+            }
+        }
+    }
+
     const projects = [
         {
-            title: "Tuny's Tech",
-            description: "A compilation of resources and personal creations that will help people learn about the world of I.T.",
-            img: tunystechimg,
-            url: 'https://www.tunystech.com',
-            backend: "https://github.com/anthony-argel/tunystech-api",
-            frontend: "https://github.com/anthony-argel/tunystech-frontend"
+            title:'Dungeon Crawler RPG Engine',
+            description: 'A video game engine made in C++.',
+            img: rpgimg,
+            url: 'https://www.youtube.com/watch?v=RFxn00Do2zo'
         },
         {
             title: "InterviewPrep.net",
@@ -55,55 +73,52 @@ function Home(props) {
         setCurrentProjectInd(nextNumber);
     }
 
+    function changePos(e) {
+        e.preventDefault();
+        setLeftPos(e.pageX + xOffset);
+        setTopPos(e.pageY + yOffset);
+    }
+
+    function toggleDragging(e, mouseIsDown, oldLeftPos, oldTopPos, clickedId) {
+        if(mouseIsDown === true && dragging === false) {
+            setDragging(true);
+            setActiveWindow(clickedId);
+            setXOffset(oldLeftPos - e.pageX);
+            setYOffset(oldTopPos - e.pageY);
+            setLeftPos(e.pageX + (oldLeftPos - e.pageX));
+            setTopPos(e.pageY + (oldTopPos - e.pageY));
+        }
+        else if(mouseIsDown === false && dragging === true) {
+            setDragging(false);
+            const newPos = [...winPositions];
+            newPos[activeWindow] = [leftPos, topPos];
+            setWinPositions(newPos);
+            setXOffset(0);
+            setYOffset(0);
+        }
+    }
+
     return (
-    <div className='container-fluid'>
-        <div className='row'>
-            <div className='col-12 col-lg-3 information d-flex flex-column justify-content-center'>
-                <div>
-                    <h1 className='fw-bold' style={{fontSize:'max(2.4vw, 4vh)'}}>Anthony Argel</h1>
-                    <h4 style={{fontSize:'max(1.2vw, 3vh)'}}>Full Stack Developer</h4>
-                    <a href={resume} download className='h2' style={{textDecoration:'none', fontSize:'max(1.2vw, 3vh)'}}>Resume</a><br/>
-                    <div className='d-flex justify-content-around mt-3'>
-                    <a href='mailto:anthony.r.argel@gmail.com'><AiOutlineMail color='black' size='max(1.7vw, 4vh)'/></a>
-                    <a href='https://www.linkedin.com/in/anthony-argel-24735116a/'><FaLinkedin color='black' size='max(1.7vw, 4vh)'/></a>
-                    <a href='https://github.com/anthony-argel'><FaGithub color='black' size='max(1.7vw, 4vh)'/></a>
-                    </div>
-                </div>
-            </div>
+    <div onMouseMove={e => {changePos(e)}} onMouseUp={e => {toggleDragging(e, false)}}>
+        <div>
+            <Window title='About' toggleDragging={toggleDragging} activeWindow={activeWindow} setActiveWindow={setActiveWindow} setXOffset={setXOffset} 
+            setYOffset={setYOffset} 
+            top={activeWindow === 0 && dragging ? topPos : winPositions[0][1]} left={activeWindow === 0 && dragging ? leftPos : winPositions[0][0]} 
+            width='400px' winID={0} 
+            windowContent={<About></About>}></Window>
 
+            <Window title='Projects (Click on them for more info!)' toggleDragging={toggleDragging} activeWindow={activeWindow} setXOffset={setXOffset} 
+            setYOffset={setYOffset} setActiveWindow={setActiveWindow} winID={1} 
+            top={activeWindow === 1 && dragging ? topPos : winPositions[1][1]} left={activeWindow === 1 && dragging ? leftPos : winPositions[1][0]}
+            width='800px'  windowContent={<Projects openProjectInfo={openProjectInfo} projects={projects}></Projects>}></Window>
 
-
-
-            <div className='col-12 col-lg-9 p-3 projects'>
-                    <h3 className='text-center mb-0' style={{fontSize:'max(2.5vw, 4vh)'}}>Projects</h3>
-                    <hr style={{marginBottom:'min(10px, .5vh)', marginTop:'min(100px, .5vh)'}}/>
-                <div className='grid-container'>
-
-                <div className='grid-item item-1'>
-                    <img src={projects[currentProjectInd].img} className='project-img d-block mx-auto' alt=''/>
-                </div>
-
-                <div className='grid-item item-2 mx-auto my-auto'>
-                <FaArrowAltCircleLeft cursor='pointer' size='max(1.7vw, 4vh)' onClick={() => nextProject(-1)}/>
-                </div>
-
-                <div className='grid-item item-3 mx-auto my-auto'>
-                <FaArrowAltCircleRight cursor='pointer' size='max(1.7vw, 4vh)' onClick={() => nextProject(1)}/>
-                </div>
-
-
-                <div className='grid-item item-4'>
-                    <p className='fw-bold' style={{fontSize:'max(1.3vw, 4vh)'}}>{projects[currentProjectInd].title}</p>
-                    <p style={{fontSize:'max(1.3vw, 2vh)'}}>{projects[currentProjectInd].description}</p>
-                    <div className='d-flex justify-content-center'>
-                        <a href={projects[currentProjectInd].url}  style={{fontSize:'max(1vw, 2vh)'}} target='_blank' rel='noopener noreferrer' className='btn btn-secondary mx-3'>Visit Site</a>
-                        <a href={projects[currentProjectInd].backend}  style={{fontSize:'max(1vw, 2vh)'}} target='_blank' rel='noopener noreferrer'  className='btn btn-primary mx-3'>Backend code</a>
-                        <a href={projects[currentProjectInd].frontend}  style={{fontSize:'max(1vw, 2vh)'}} target='_blank' rel='noopener noreferrer'  className='btn btn-primary mx-3'>Frontend code</a>
-                    </div>
-                </div>
-            </div>
-            </div>
-
+            {selectedProject !== -1 ?
+            <Window title={projects[selectedProject].title} toggleDragging={toggleDragging} activeWindow={activeWindow} setXOffset={setXOffset} 
+            setYOffset={setYOffset} setActiveWindow={setActiveWindow} 
+            top={activeWindow === 2 && dragging ? topPos : winPositions[2][1]} left={activeWindow === 2  && dragging? leftPos : winPositions[2][0]} 
+            width='500px' windID={2} windowContent={<Info project={projects[selectedProject]}></Info>}></Window>
+            : null}
+            <TaskBar></TaskBar>
         </div>
     </div>)
 }

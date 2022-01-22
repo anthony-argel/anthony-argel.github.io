@@ -1,0 +1,32 @@
+.window{
+    position:relative;
+    top:100px;
+    left:100px;
+    display: flex;
+    flex-direction: column;
+    background-color: #c3c3c3;
+    user-select: none;
+}
+
+.menu-bar {
+    background-color: #000082;
+}
+
+.menu-bar p {
+    color: #FFF;
+    padding-left: 5px;
+    margin-bottom: 0px;
+}
+
+.display {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+.display .main-panel {
+    background-color: #ffffff;
+    max-height: 400px;
+    overflow-y: scroll;
+    outline: 1px solid black;
+}
