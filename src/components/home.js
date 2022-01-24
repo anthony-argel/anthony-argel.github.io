@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import resume from '../assets/Resume.pdf';
 import blogimg from '../assets/images/blog.png';
 import asmrdbimg from '../assets/images/asmrdb.png';
 import inteviewprepimg from '../assets/images/interviewprep.png';
@@ -17,7 +16,15 @@ function Home(props) {
     const [xOffset, setXOffset] = useState(0);
     const [yOffset, setYOffset] = useState(0);
     const [dragging, setDragging] = useState(false);
-    const [winPositions, setWinPositions] = useState([[100,400], [1000,50], [2,2]])
+    const [winPositions, setWinPositions] = useState(decideStartPos);
+
+    function decideStartPos() {
+        if(window.innerWidth < 450) {
+            return [[20,20],[20,35],[20,0]];
+        } else {
+            return [[100,400], [1000,50], [-50,-200]];
+        }
+    }
 
     function openProjectInfo(title) {
         for(let i = 0; i < projects.length; i++) {
@@ -59,19 +66,6 @@ function Home(props) {
             frontend: "https://github.com/anthony-argel/asmrdb-frontend"
         }
     ];
-    
-    const [currentProjectInd, setCurrentProjectInd] = useState(0);
-
-    function nextProject(num) {
-        let nextNumber = currentProjectInd + num;
-        if(nextNumber < 0 ) {
-            nextNumber = projects.length - 1;
-        }
-        if(nextNumber >= projects.length) {
-            nextNumber = 0;
-        }
-        setCurrentProjectInd(nextNumber);
-    }
 
     function changePos(e) {
         e.preventDefault();
@@ -95,31 +89,58 @@ function Home(props) {
             setWinPositions(newPos);
             setXOffset(0);
             setYOffset(0);
+            setLeftPos(0);
+            setTopPos(0);
         }
     }
 
     return (
-    <div onMouseMove={e => {changePos(e)}} onMouseUp={e => {toggleDragging(e, false)}}>
+    <div onMouseMove={e => {if(dragging) {changePos(e)}}} onMouseUp={e => {if(dragging) {toggleDragging(e, false)}}}>
         <div>
-            <Window title='About' toggleDragging={toggleDragging} activeWindow={activeWindow} setActiveWindow={setActiveWindow} setXOffset={setXOffset} 
-            setYOffset={setYOffset} 
-            top={activeWindow === 0 && dragging ? topPos : winPositions[0][1]} left={activeWindow === 0 && dragging ? leftPos : winPositions[0][0]} 
-            width='400px' winID={0} 
-            windowContent={<About></About>}></Window>
+            {
+                window.innerWidth >= 450 ?
+                <>
+                <Window title='About' toggleDragging={toggleDragging} activeWindow={activeWindow} setActiveWindow={setActiveWindow} 
+                setXOffset={setXOffset} setYOffset={setYOffset} winID={0} 
+                top={activeWindow === 0 && dragging ? topPos : winPositions[0][1]} left={activeWindow === 0 && dragging ? leftPos : winPositions[0][0]} 
+                width='400px' 
+                windowContent={<About></About>}></Window>
+    
+                <Window title='Projects (Click on them for more info!)' toggleDragging={toggleDragging} activeWindow={activeWindow}  setActiveWindow={setActiveWindow} 
+                setXOffset={setXOffset} setYOffset={setYOffset} winID={1} 
+                top={activeWindow === 1 && dragging ? topPos : winPositions[1][1]} left={activeWindow === 1 && dragging ? leftPos : winPositions[1][0]}
+                width='600px'  windowContent={<Projects openProjectInfo={openProjectInfo} projects={projects}></Projects>}></Window>
+    
+                {selectedProject !== -1 ?
+                <Window title={projects[selectedProject].title} toggleDragging={toggleDragging} activeWindow={activeWindow} setActiveWindow={setActiveWindow}
+                setXOffset={setXOffset} setYOffset={setYOffset} winID={2}
+                top={activeWindow === 2 && dragging ? topPos : winPositions[2][1]} left={activeWindow === 2  && dragging? leftPos : winPositions[2][0]} 
+                width='500px'  windowContent={<Info project={projects[selectedProject]}></Info>}></Window>
+                : null}</>
+                :
 
-            <Window title='Projects (Click on them for more info!)' toggleDragging={toggleDragging} activeWindow={activeWindow} setXOffset={setXOffset} 
-            setYOffset={setYOffset} setActiveWindow={setActiveWindow} winID={1} 
-            top={activeWindow === 1 && dragging ? topPos : winPositions[1][1]} left={activeWindow === 1 && dragging ? leftPos : winPositions[1][0]}
-            width='800px'  windowContent={<Projects openProjectInfo={openProjectInfo} projects={projects}></Projects>}></Window>
 
-            {selectedProject !== -1 ?
-            <Window title={projects[selectedProject].title} toggleDragging={toggleDragging} activeWindow={activeWindow} setXOffset={setXOffset} 
-            setYOffset={setYOffset} setActiveWindow={setActiveWindow} 
-            top={activeWindow === 2 && dragging ? topPos : winPositions[2][1]} left={activeWindow === 2  && dragging? leftPos : winPositions[2][0]} 
-            width='500px' windID={2} windowContent={<Info project={projects[selectedProject]}></Info>}></Window>
-            : null}
-            <TaskBar></TaskBar>
+                <>
+                <Window title='About' toggleDragging={toggleDragging} activeWindow={activeWindow} setActiveWindow={setActiveWindow} 
+                setXOffset={setXOffset} setYOffset={setYOffset} winID={0} 
+                top={activeWindow === 0 && dragging ? topPos : winPositions[0][1]} left={activeWindow === 0 && dragging ? leftPos : winPositions[0][0]} 
+                width='90%' 
+                windowContent={<About></About>}></Window>
+    
+                <Window title='Projects (Click on them for more info!)' toggleDragging={toggleDragging} activeWindow={activeWindow}  setActiveWindow={setActiveWindow} 
+                setXOffset={setXOffset} setYOffset={setYOffset} winID={1} 
+                top={activeWindow === 1 && dragging ? topPos : winPositions[1][1]} left={activeWindow === 1 && dragging ? leftPos : winPositions[1][0]}
+                width='90%'  windowContent={<Projects openProjectInfo={openProjectInfo} projects={projects}></Projects>}></Window>
+    
+                {selectedProject !== -1 ?
+                <Window title={projects[selectedProject].title} toggleDragging={toggleDragging} activeWindow={activeWindow} setActiveWindow={setActiveWindow}
+                setXOffset={setXOffset} setYOffset={setYOffset} winID={2}
+                top={activeWindow === 2 && dragging ? topPos : winPositions[2][1]} left={activeWindow === 2  && dragging? leftPos : winPositions[2][0]} 
+                width='90%'  windowContent={<Info project={projects[selectedProject]}></Info>}></Window>
+                : null}</>
+            }
         </div>
+        <TaskBar></TaskBar>
     </div>)
 }
 

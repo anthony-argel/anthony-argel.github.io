@@ -36,3 +36,19 @@ img {
     1px -2px #828282, -2px 1px #828282,
     -2px 2px #000, 2px -2px #000;
 }
+
+.taskbar {
+    background-color: #c0c0c0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    z-index: 99999;
+}
+
+.taskbar > * {
+    padding: 1vh;
+    outline: 1px solid black;
+}
