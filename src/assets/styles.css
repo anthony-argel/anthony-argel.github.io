@@ -5,6 +5,7 @@ body {
 
 .eye-catch {
     background-color: #023430;
+    border-bottom-left-radius: 80%;
 }
 
 .databases {
@@ -33,10 +34,11 @@ body {
     color: rgb(37, 35, 35);
 }
 
-.projects {
-    background-color: #023430;
+.languages .position-relative {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
 
 .my-footer {
     background-color: #061621;
@@ -61,4 +63,26 @@ body {
 
 .my-nav a:hover {
     color:red;
+}
+
+.my-btn {
+    text-decoration: none;
+    color:white;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-btn {
+    background-color: #7185b1;
+}
+
+.demo-btn:hover, .code-btn:hover {
+    color:black;
+    font-size: 1.1rem;
+}
+
+.code-btn {
+    background-color: #376c89;
 }

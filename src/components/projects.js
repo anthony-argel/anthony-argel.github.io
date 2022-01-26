@@ -40,7 +40,7 @@ function Projects(props) {
     return (
 
         <div className='row mt-5 projects p-2' id='projects'>
-                <h2 className='text-center mb-5'>Projects</h2>
+                <h2 className='text-center mb-5 mt-5'>Projects</h2>
             {projects.map((value, index) => {
                 return (
                 <div className='col-12' key={index}>
@@ -52,16 +52,16 @@ function Projects(props) {
                             <h3>{value.title}</h3>
                             <p>{value.description}</p>
                             <div className='d-flex justify-content-center'>
-                                <button type="button" className="btn btn-primary mx-2">Demonstration</button>
+                                <a href={value.url} className="my-btn demo-btn mx-2 p-2" target="_blank" rel="noopener noreferrer" >Demonstration</a>
                                 {
                                     typeof value.frontend !== 'undefined' ?
-                                    <button type="button" className="btn btn-primary mx-2">Frontend Code</button>
+                                    <a href={value.frontend} className="my-btn code-btn mx-2 p-2" target="_blank" rel="noopener noreferrer" >Frontend Code</a>
                                     :
                                     null
                                 }
                                 {
                                     typeof value.backend !== 'undefined' ?
-                                    <button type="button" className="btn btn-primary mx-2">Backend Code</button>
+                                    <a href={value.backend} className="my-btn code-btn mx-2 p-2" target="_blank" rel="noopener noreferrer" >Backend Code</a>
                                     :
                                     null
                                 }
