@@ -6,7 +6,7 @@ function Languages(props) {
     return (
         <div className='row languages d-flex justify-content-center mt-5' id='skills'>
             
-            <h2 className='text-center h2 mt-5 p-2' >Skills</h2>
+            <h2 className='text-center h2 p-2' >Skills</h2>
             <div className='col-12 col-lg-3 p-2 m-2 position-relative' style={{'zIndex':'1'}}>
                    <FaPython className='position-absolute top-50 start-50 translate-middle' style={{'zIndex':'-1', width:'100%', height:'100%'}}></FaPython>
                 <p className="fs-2">Python</p>
@@ -44,7 +44,7 @@ function Languages(props) {
                 <p className="fs-2">MySQL</p>
                 <ul>
                     <li>Storage of scraped data</li>
-                    <li>Explore data from sources such as Kaggle</li>
+                    <li>Web APIs</li>
                 </ul>
             </div>
         </div>

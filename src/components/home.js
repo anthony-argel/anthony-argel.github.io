@@ -18,10 +18,8 @@ function Home(props) {
             <div className='container'>
                 <Languages></Languages>
             </div>
-            <div className='container-fluid position-relative' style={{'backgroundColor':'#023430', 'borderTopRightRadius':'10%'}}>
-                <div className='container'>
-                    <Projects></Projects>
-                </div>
+            <div className='container-fluid position-relative p-0' style={{'backgroundColor':'#023430'}}>
+                <Projects></Projects>
             </div>
             <div className='w-100 p-5 my-footer text-center d-flex  flex-column align-items-center' id='contact'>
                 <h2>Contact</h2>

@@ -1,6 +1,5 @@
 import blogimg from '../assets/images/blog.png';
 import asmrdbimg from '../assets/images/asmrdb.png';
-import inteviewprepimg from '../assets/images/interviewprep.png';
 import rpgimg from '../assets/images/rpgengine.png';
 
 function Projects(props) {
@@ -10,14 +9,6 @@ function Projects(props) {
             description: 'A video game engine made in C++.',
             img: rpgimg,
             url: 'https://www.youtube.com/watch?v=RFxn00Do2zo'
-        },
-        {
-            title: "InterviewPrep.net",
-            description: "Ask and browse interview questions, upload and watch youtube responses to questions, give and receive feedback.",
-            img: inteviewprepimg,
-            url: 'https://www.interviewprep.net/',
-            backend: "https://github.com/anthony-argel/interviewprep-api",
-            frontend: "https://github.com/anthony-argel/interviewprep-frontend"
         },
         {
             title: "Blog",
@@ -39,29 +30,29 @@ function Projects(props) {
 
     return (
 
-        <div className='row mt-5 projects p-2' id='projects'>
-                <h2 className='text-center mb-5 mt-5'>Projects</h2>
+        <div className='row projects p-2' id='projects'>
+                <h2 className='text-center mt-5 mb-5'>Projects</h2>
             {projects.map((value, index) => {
                 return (
                 <div className='col-12' key={index}>
-                    <div className={index % 2 === 0 ? 'row' : 'row flex-row-reverse'}>
-                        <div className='col-12 col-lg-6 p-0'>
-                            <img src={value.img} alt='project thumbnail' className='w-100'></img>
+                    <div className={index % 2 === 0 ? 'row p-5' : 'row p-5 flex-row-reverse gray-project'}>
+                        <div className='col-12 col-lg-6 p-3 d-flex justify-content-center align-items-center'>
+                            <img src={value.img} alt='project thumbnail'></img>
                         </div>
-                        <div className='col-12 col-lg-6 p-3 d-flex flex-column justify-content-between'>
+                        <div className='col-12 col-lg-6 p-1 d-flex flex-column justify-content-center align-items-center'>
                             <h3>{value.title}</h3>
                             <p>{value.description}</p>
                             <div className='d-flex justify-content-center'>
                                 <a href={value.url} className="my-btn demo-btn mx-2 p-2" target="_blank" rel="noopener noreferrer" >Demonstration</a>
                                 {
                                     typeof value.frontend !== 'undefined' ?
-                                    <a href={value.frontend} className="my-btn code-btn mx-2 p-2" target="_blank" rel="noopener noreferrer" >Frontend Code</a>
+                                    <a href={value.frontend} className="my-btn code-btn mx-2 p-2 text-center" target="_blank" rel="noopener noreferrer" >Frontend Code</a>
                                     :
                                     null
                                 }
                                 {
                                     typeof value.backend !== 'undefined' ?
-                                    <a href={value.backend} className="my-btn code-btn mx-2 p-2" target="_blank" rel="noopener noreferrer" >Backend Code</a>
+                                    <a href={value.backend} className="my-btn code-btn mx-2 p-2 text-center" target="_blank" rel="noopener noreferrer" >Backend Code</a>
                                     :
                                     null
                                 }

@@ -5,7 +5,6 @@ body {
 
 .eye-catch {
     background-color: #023430;
-    border-bottom-left-radius: 80%;
 }
 
 .databases {
@@ -85,4 +84,12 @@ body {
 
 .code-btn {
     background-color: #376c89;
+}
+
+.gray-project {
+    background-color: #252323;
+}
+
+.projects img {
+    width: 100%;
 }
