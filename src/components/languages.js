@@ -4,7 +4,7 @@ import {SiCplusplus, SiJavascript, SiMongodb} from 'react-icons/si'
 
 function Languages(props) {
     return (
-        <div className='row languages d-flex justify-content-center mt-5' id='skills'>
+        <div className='row languages d-flex justify-content-center mt-5 mb-5' id='skills'>
             
             <h2 className='text-center h2 p-2' >Skills</h2>
             <div className='col-12 col-lg-3 p-2 m-2 position-relative' style={{'zIndex':'1'}}>

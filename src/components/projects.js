@@ -30,12 +30,12 @@ function Projects(props) {
 
     return (
 
-        <div className='row projects p-2' id='projects'>
-                <h2 className='text-center mt-5 mb-5'>Projects</h2>
+        <div className='row projects w-100 gx-0' id='projects'>
+                <h2 className='text-center mt-5'>Projects</h2>
             {projects.map((value, index) => {
                 return (
-                <div className='col-12' key={index}>
-                    <div className={index % 2 === 0 ? 'row p-5' : 'row p-5 flex-row-reverse gray-project'}>
+                <div className='col-12 p-0' key={index}>
+                    <div className={index % 2 === 0 ? 'row p-5 gx-0' : 'row p-5 gray-project flex-row-reverse gx-0'}>
                         <div className='col-12 col-lg-6 p-3 d-flex justify-content-center align-items-center'>
                             <img src={value.img} alt='project thumbnail'></img>
                         </div>
