@@ -18,7 +18,7 @@ function Projects(props) {
             img: asmrdbimg,
             url: "https://www.asmrdb.net/",
             backend: "https://github.com/anthony-argel/asmrdb-api",
-            frontend: "https://github.com/anthony-argel/asmrdb-frontend",
+            frontend: "https://github.com/anthony-argel/asmrdb-next",
         },
         {
             title: "Blog",
