@@ -13,25 +13,15 @@ function Projects(props) {
         },
         {
             title: "ASMR database",
-            description:
-                "A wiki-esque website for ASMR enthusiasts to gather data, search for new content, and discuss all things ASMR.",
+            description: "A wiki-esque website for ASMR enthusiasts to gather data, search for new content, and discuss all things ASMR.",
             img: asmrdbimg,
             url: "https://www.asmrdb.net/",
             backend: "https://github.com/anthony-argel/asmrdb-api",
             frontend: "https://github.com/anthony-argel/asmrdb-next",
         },
         {
-            title: "Blog",
-            description: "A content management system for my thoughts.",
-            img: blogimg,
-            url: "https://www.anthonyargel.com/blog",
-            backend: "https://github.com/anthony-argel/blog-API",
-            frontend: "https://github.com/anthony-argel/blog",
-        },
-        {
             title: "DLSite Scraper",
-            description:
-                "A web scraper that collects sales data from a popular Japanese site.",
+            description: "A web scraper that collects sales data from a popular Japanese site.",
             img: dlsiteimg,
             url: "https://www.youtube.com/watch?v=fsdmvGr1AiE",
         },
@@ -43,48 +33,24 @@ function Projects(props) {
             {projects.map((value, index) => {
                 return (
                     <div className="col-12 p-0" key={index}>
-                        <div
-                            className={
-                                index % 2 === 0
-                                    ? "row p-5 gx-0"
-                                    : "row p-5 gray-project flex-row-reverse gx-0"
-                            }
-                        >
+                        <div className={index % 2 === 0 ? "row p-5 gx-0" : "row p-5 gray-project flex-row-reverse gx-0"}>
                             <div className="col-12 col-lg-6 p-3 d-flex justify-content-center align-items-center">
-                                <img
-                                    src={value.img}
-                                    alt="project thumbnail"
-                                ></img>
+                                <img src={value.img} alt="project thumbnail"></img>
                             </div>
                             <div className="col-12 col-lg-6 p-1 d-flex flex-column justify-content-center align-items-center">
                                 <h3>{value.title}</h3>
                                 <p>{value.description}</p>
                                 <div className="d-flex justify-content-center">
-                                    <a
-                                        href={value.url}
-                                        className="my-btn demo-btn mx-2 p-2"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
+                                    <a href={value.url} className="my-btn demo-btn mx-2 p-2" target="_blank" rel="noopener noreferrer">
                                         Demonstration
                                     </a>
                                     {typeof value.frontend !== "undefined" ? (
-                                        <a
-                                            href={value.frontend}
-                                            className="my-btn code-btn mx-2 p-2 text-center"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
+                                        <a href={value.frontend} className="my-btn code-btn mx-2 p-2 text-center" target="_blank" rel="noopener noreferrer">
                                             Frontend Code
                                         </a>
                                     ) : null}
                                     {typeof value.backend !== "undefined" ? (
-                                        <a
-                                            href={value.backend}
-                                            className="my-btn code-btn mx-2 p-2 text-center"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
+                                        <a href={value.backend} className="my-btn code-btn mx-2 p-2 text-center" target="_blank" rel="noopener noreferrer">
                                             Backend Code
                                         </a>
                                     ) : null}
