@@ -1,28 +1,33 @@
 import React from "react";
-import EyeCatch from "./eyecatch";
-import Languages from "./languages";
-import Projects from "./projects";
-import NavBar from "./nav";
+import EyeCatch from "./Eyecatch";
+import Languages from "./Languages";
+import Projects from "./Projects";
+import NavBar from "./NavBar";
 import { FaTwitterSquare, FaGithubSquare } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoIosPaper } from "react-icons/io";
 import resume from "../assets/resume.pdf";
+import Experience from "./Experience";
 
 function Home(props) {
     return (
         <div>
-            <NavBar></NavBar>
-            <div className="container-fluid">
-                <EyeCatch></EyeCatch>
+            <NavBar />
+            <div className="container-fluid" id="home">
+                <EyeCatch />
             </div>
-            <div className="container">
-                <Languages></Languages>
+            <div style={{ backgroundColor: "#252323" }} id="experience">
+                <Experience />
+            </div>
+            <div className="container" id="skills">
+                <Languages />
             </div>
             <div
                 className="container-fluid p-0"
                 style={{ backgroundColor: "#023430" }}
+                id="projects"
             >
-                <Projects></Projects>
+                <Projects />
             </div>
             <div
                 className="w-100 p-5 my-footer text-center d-flex  flex-column align-items-center"
