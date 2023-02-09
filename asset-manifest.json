@@ -1,25 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.6b4d4f66.chunk.css",
-    "main.js": "/static/js/main.ed7c1bc0.chunk.js",
-    "main.js.map": "/static/js/main.ed7c1bc0.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.c57f7304.js",
-    "runtime-main.js.map": "/static/js/runtime-main.c57f7304.js.map",
-    "static/js/2.6c6cda06.chunk.js": "/static/js/2.6c6cda06.chunk.js",
-    "static/js/2.6c6cda06.chunk.js.map": "/static/js/2.6c6cda06.chunk.js.map",
+    "main.css": "/static/css/main.14bd2852.css",
+    "main.js": "/static/js/main.70ef1925.js",
+    "static/media/asmrdbv2.png": "/static/media/asmrdbv2.82e292c7e4008a972b74.png",
+    "static/media/blog.png": "/static/media/blog.189dc7fa7bb75827cf27.png",
+    "static/media/rpgengine.png": "/static/media/rpgengine.944a258f60425985e41b.png",
+    "static/media/dlsite.jpeg": "/static/media/dlsite.8a988216e02a28d38d0d.jpeg",
+    "static/media/resume.pdf": "/static/media/resume.f69453d9a2a9f599105c.pdf",
     "index.html": "/index.html",
-    "static/css/main.6b4d4f66.chunk.css.map": "/static/css/main.6b4d4f66.chunk.css.map",
-    "static/js/2.6c6cda06.chunk.js.LICENSE.txt": "/static/js/2.6c6cda06.chunk.js.LICENSE.txt",
-    "static/media/asmrdbv2.82e292c7.png": "/static/media/asmrdbv2.82e292c7.png",
-    "static/media/blog.189dc7fa.png": "/static/media/blog.189dc7fa.png",
-    "static/media/dlsite.8a988216.jpeg": "/static/media/dlsite.8a988216.jpeg",
-    "static/media/resume.3fe152cb.pdf": "/static/media/resume.3fe152cb.pdf",
-    "static/media/rpgengine.944a258f.png": "/static/media/rpgengine.944a258f.png"
+    "main.14bd2852.css.map": "/static/css/main.14bd2852.css.map",
+    "main.70ef1925.js.map": "/static/js/main.70ef1925.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.c57f7304.js",
-    "static/js/2.6c6cda06.chunk.js",
-    "static/css/main.6b4d4f66.chunk.css",
-    "static/js/main.ed7c1bc0.chunk.js"
+    "static/css/main.14bd2852.css",
+    "static/js/main.70ef1925.js"
   ]
 }
