@@ -66,7 +66,7 @@ function Languages(props) {
     return (
         <div className="flex flex-col items-center justify-center p-5  text-white">
             <h2 className="text-center text-3xl mb-5 font-bold">Skills</h2>
-            <div className="grid grid-cols-2  lg:grid-cols-3 gap-2 justify-center items-center">
+            <div className="flex flex-wrap md:grid md:grid-cols-2  lg:grid-cols-3 gap-5 justify-center items-center">
                 {languageData
                     ? languageData.map((mapData) => (
                           <LangugeContainer
