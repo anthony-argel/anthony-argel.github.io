@@ -1,80 +1,49 @@
-import { FaPython } from "react-icons/fa";
+import { FaJava, FaPython } from "react-icons/fa";
 import { DiMysql } from "react-icons/di";
 import { SiCplusplus, SiJavascript, SiMongodb } from "react-icons/si";
+import LangugeContainer from "./LanguageContainer";
+
+const languageData = [
+    {
+        name: "Python",
+        icon: <FaPython style={{ width: "100%", height: "100%" }} color="#252323"></FaPython>,
+        uses: ["Data Scraping", "Data Science", "Scripting / Automation"],
+    },
+    {
+        name: "C++",
+        icon: <SiCplusplus color="#252323" style={{ width: "100%", height: "100%" }} />,
+        uses: ["Game Development", "LeetCode / Programming Challenges"],
+    },
+    {
+        name: "JS/TS",
+        icon: <SiJavascript color="#252323" style={{ zIndex: "-1", width: "100%", height: "100%" }} />,
+        uses: ["MERN", "Fullstack Development", "Mobile Development"],
+    },
+    {
+        name: "Databases",
+        icon: (
+            <>
+                <SiMongodb color="#252323" style={{ zIndex: "-1", width: "100%", height: "100%" }} />
+                <DiMysql color="#252323" style={{ zIndex: "-1", width: "100%", height: "100%" }} />
+            </>
+        ),
+        uses: ["SQL and NoSQL", "Design", "Management", "Web APIs"],
+    },
+    {
+        name: "Java",
+        icon: <FaJava color="#252323" style={{ zIndex: "-1", width: "100%", height: "100%" }} />,
+        uses: ["Spring Boot", "Fullstack Development"],
+    },
+];
 
 function Languages(props) {
     return (
-        <div className="row languages d-flex justify-content-center mt-5 mb-5">
-            <h2 className="text-center h2 p-2">Skills</h2>
-            <div
-                className="col-12 col-lg-3 p-2 m-2 position-relative"
-                style={{ zIndex: "1" }}
-            >
-                <FaPython
-                    className="position-absolute top-50 start-50 translate-middle"
-                    style={{ zIndex: "-1", width: "100%", height: "100%" }}
-                ></FaPython>
-                <p className="fs-2">Python</p>
-                <ul>
-                    <li>Data Scraping</li>
-                    <li>Data Science / Data Analysis / Data Visualization </li>
-                    <li>Basic scripting / Automation</li>
-                </ul>
-            </div>
-            <div
-                className="col-12 col-lg-3 m-2 p-2 position-relative"
-                style={{ zIndex: "1" }}
-            >
-                <SiCplusplus
-                    className="position-absolute top-50 start-50 translate-middle"
-                    style={{ zIndex: "-1", width: "90%", height: "90%" }}
-                ></SiCplusplus>
-                <p className="fs-2">C++</p>
-                <ul>
-                    <li>Game Development / openFrameworks</li>
-                    <li>LeetCode / Programming Challenges</li>
-                </ul>
-            </div>
-            <div
-                className="col-12 col-lg-3 m-2 p-2 position-relative"
-                style={{ zIndex: "1" }}
-            >
-                <SiJavascript
-                    className="position-absolute top-50 start-50 translate-middle"
-                    style={{ zIndex: "-1", width: "90%", height: "90%" }}
-                ></SiJavascript>
-                <p className="fs-2">JS/TS</p>
-                <ul>
-                    <li>Frontend development / React / NextJS</li>
-                    <li>Backend development / Node / Express</li>
-                </ul>
-            </div>
-            <div
-                className="col-12 col-lg-3 m-2  p-2 position-relative"
-                style={{ zIndex: "1" }}
-            >
-                <SiMongodb
-                    className="position-absolute top-50 start-50 translate-middle"
-                    style={{ zIndex: "-1", width: "90%", height: "90%" }}
-                ></SiMongodb>
-                <p className="fs-2">MongoDB</p>
-                <ul>
-                    <li>Web APIs</li>
-                </ul>
-            </div>
-            <div
-                className="col-12 col-lg-3 m-2 p-3 position-relative"
-                style={{ zIndex: "1" }}
-            >
-                <DiMysql
-                    className="position-absolute top-50 start-50 translate-middle"
-                    style={{ zIndex: "-1", width: "90%", height: "90%" }}
-                ></DiMysql>
-                <p className="fs-2">MySQL</p>
-                <ul>
-                    <li>Storage of scraped data</li>
-                    <li>Web APIs</li>
-                </ul>
+        <div className="flex flex-col items-center justify-center p-5 h-full text-white">
+            <h2 className="text-center text-3xl mb-5 font-bold">Skills</h2>
+            <div className="grid grid-cols-2  lg:grid-cols-3 gap-2 justify-center items-center">
+                {languageData
+                    ? languageData.map((mapData) => <LangugeContainer languageIcon={mapData.icon} languageName={mapData.name} listOfUses={mapData.uses} />)
+                    : null}
             </div>
         </div>
     );

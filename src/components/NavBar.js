@@ -1,48 +1,67 @@
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { VscTriangleUp } from "react-icons/vsc";
+
 function NavBar(props) {
+    const [showNav, setShowNav] = useState(false);
+
+    const toggleNav = (e) => {
+        e.preventDefault();
+        setShowNav((prev) => !prev);
+    };
+
+    const clickMenuItem = (e) => {
+        setShowNav(false);
+    };
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark my-nav ">
-            <div className="container-fluid">
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#home">
-                                Home
-                            </a>
+        <nav className="text-white sticky top-0 p-3 z-50" style={{ backgroundColor: "#061621" }}>
+            <div className="hidden md:flex">
+                <ul className="flex gap-5">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#experience">Experience</a>
+                    </li>
+                    <li>
+                        <a href="#skills">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div className="flex justify-end md:hidden">
+                {showNav ? (
+                    <VscTriangleUp className="text-4xl cursor-pointer border border-white rounded p-1 select-none" onClick={toggleNav} />
+                ) : (
+                    <GiHamburgerMenu className="text-4xl cursor-pointer border border-white rounded p-1 select-none" onClick={toggleNav} />
+                )}
+            </div>
+            {showNav ? (
+                <div className="pt-5 flex justify-end md:hidden">
+                    <ul className="flex flex-col items-end gap-5">
+                        <li onClick={clickMenuItem}>
+                            <a href="#home">Home</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#experience">
-                                Experience
-                            </a>
+                        <li onClick={clickMenuItem}>
+                            <a href="#experience">Experience</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#skills">
-                                Skills
-                            </a>
+                        <li onClick={clickMenuItem}>
+                            <a href="#skills">Skills</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#projects">
-                                Projects
-                            </a>
+                        <li onClick={clickMenuItem}>
+                            <a href="#projects">Projects</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#contact">
-                                Contact
-                            </a>
+                        <li onClick={clickMenuItem}>
+                            <a href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>
-            </div>
+            ) : null}
         </nav>
     );
 }
