@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.ea8fc709.css",
-    "main.js": "/static/js/main.e52ad54d.js",
+    "main.css": "/static/css/main.a95611db.css",
+    "main.js": "/static/js/main.81959ef7.js",
     "static/media/asmrdbv2.png": "/static/media/asmrdbv2.82e292c7e4008a972b74.png",
     "static/media/rpgengine.png": "/static/media/rpgengine.944a258f60425985e41b.png",
     "static/media/dlsite.jpeg": "/static/media/dlsite.8a988216e02a28d38d0d.jpeg",
     "static/media/resume.pdf": "/static/media/resume.f69453d9a2a9f599105c.pdf",
     "index.html": "/index.html",
-    "main.ea8fc709.css.map": "/static/css/main.ea8fc709.css.map",
-    "main.e52ad54d.js.map": "/static/js/main.e52ad54d.js.map"
+    "main.a95611db.css.map": "/static/css/main.a95611db.css.map",
+    "main.81959ef7.js.map": "/static/js/main.81959ef7.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea8fc709.css",
-    "static/js/main.e52ad54d.js"
+    "static/css/main.a95611db.css",
+    "static/js/main.81959ef7.js"
   ]
 }
